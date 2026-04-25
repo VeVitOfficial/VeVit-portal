@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ren bronze_premium.png bronze_premium.svg)",
+      "Bash(ren silver_premium.png silver_premium.svg)",
+      "Bash(ren gold_premium.png gold_premium.svg)",
+      "Bash(cp \"P:\\\\web apps\\\\vevit-portal-2\\\\images\\\\bronze premium.png\" \"P:\\\\web apps\\\\vevit-account-system\\\\images\\\\\" && cp \"P:\\\\web apps\\\\vevit-portal-2\\\\images\\\\silver premium.png\" \"P:\\\\web apps\\\\vevit-account-system\\\\images\\\\\")",
+      "Bash(cp \"P:\\\\web apps\\\\vevit-portal-2\\\\images\\\\gold premium.png\" \"P:\\\\web apps\\\\vevit-account-system\\\\images\\\\\" && ls -la \"P:\\\\web apps\\\\vevit-account-system\\\\images\\\\\")",
+      "Bash(composer require:*)",
+      "Read(//m/Stažené soubory/stripe-php-20.0.0/**)",
+      "Bash(cp:*)",
+      "Bash(node -c \"P:/web apps/vevit-portal-2/assets/js/app.js\")",
+      "Bash(node -c \"P:/web apps/vevit-portal-2/assets/js/ui.js\")",
+      "Bash(node -c \"P:/web apps/vevit-portal-2/assets/js/auth.js\")",
+      "WebFetch(domain:storage.ko-fi.com)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_console_messages",
+      "WebFetch(domain:account.vevit.fun)",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "Bash(node -c assets/js/auth.js)",
+      "Bash(node -c assets/js/app.js)",
+      "mcp__plugin_playwright_playwright__browser_evaluate",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "Bash(node -c assets/js/ui.js)"
+    ]
+  }
+}

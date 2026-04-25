@@ -1,0 +1,137 @@
+{
+  "nav": {
+    "home": "Home",
+    "apps": "Apps",
+    "about": "About",
+    "roadmap": "Roadmap",
+    "changelog": "Changelog",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Register"
+  },
+  "hero": {
+    "pill": "New platform on VPS",
+    "title": "One account. The entire digital world.",
+    "subtitle": "Games, tools, education and services — under one roof, no ads, free.",
+    "ctaPrimary": "Get started free",
+    "ctaSecondary": "Explore apps",
+    "trust": "No ads · Data in Czechia · Open source components",
+    "welcomeBack": "Welcome back, {{nickname}}!",
+    "userStats": "You have {{xp}} XP · Level {{level}} · Last activity: {{timeAgo}}",
+    "continueCourse": "Continue course: {{course}}",
+    "continueCourseCta": "Continue",
+    "yourRecord": "Your record: {{game}} {{score}}",
+    "beatRecord": "Beat record",
+    "xpToSpend": "You have {{xp}} XP to spend",
+    "xpStore": "Open XP store"
+  },
+  "stats": {
+    "users": "Active users",
+    "lessonsCompleted": "Lessons completed",
+    "gamesPlayed": "Games played",
+    "toolsAvailable": "Tools available"
+  },
+  "bento": {
+    "title": "The entire ecosystem",
+    "subtitle": "One login. All services connected.",
+    "games": "Games",
+    "gamesDesc": "30 games — play, earn XP and level up",
+    "tools": "Tools",
+    "toolsDesc": "94 tools · 10 AI tools",
+    "edu": "Programming courses",
+    "eduDesc": "18 courses, 500+ lessons",
+    "services": "Services marketplace",
+    "store": "Store",
+    "account": "Your profile",
+    "vevibe": "Community",
+    "search": "Search",
+    "online": "Online",
+    "soon": "Coming soon",
+    "activityToday": "Activity: {{count}} games played today"
+  },
+  "activity": {
+    "title": "What's happening now",
+    "show": "Show",
+    "hide": "Hide",
+    "anonymous": "Anonymous player",
+    "levelUp": "{{nickname}} reached level {{level}}",
+    "highscore": "{{nickname}} set a new record in {{game}} — {{score}}",
+    "lessonCompleted": "{{nickname}} completed {{lesson}} in course {{course}}",
+    "courseStarted": "{{nickname}} started course {{course}}",
+    "toolUsed": "{{nickname}} is using {{tool}}",
+    "timeAgo": "{{minutes}} min ago"
+  },
+  "features": {
+    "title": "Why VeVit?",
+    "dataInCz": "Your data in Czechia",
+    "dataInCzDesc": "The entire platform runs on servers in Europe. No trackers, no ads, no sharing with third parties.",
+    "noAds": "No ads — forever",
+    "xpSystem": "XP system — play, learn, earn",
+    "openSource": "Open source components",
+    "oneAccount": "One login for everything"
+  },
+  "premium": {
+    "title": "More, when you want it.",
+    "pill": "Premium",
+    "body": "Support the project and get unlimited AI tools, priority support and exclusive looks.",
+    "cta": "View plans",
+    "bronze": "49 CZK/mo",
+    "silver": "99 CZK/mo",
+    "gold": "199 CZK/mo",
+    "note": "Payment via Stripe. Cancel anytime."
+  },
+  "changelogTeaser": {
+    "title": "Latest updates",
+    "viewAll": "View all"
+  },
+  "contact": {
+    "title": "Write to us",
+    "subtitle": "Question, idea, bug? Write. I answer personally.",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "subjectOptional": "Subject (optional)",
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending...",
+    "success": "Message sent!",
+    "error": "Error sending."
+  },
+  "newsletter": {
+    "title": "News via email",
+    "subtitle": "Monthly digest of news, no spam, unsubscribe anytime.",
+    "placeholder": "your@email.com",
+    "subscribe": "Subscribe",
+    "checkEmail": "Check your email to confirm."
+  },
+  "footer": {
+    "desc": "Modern digital ecosystem in Czechia.",
+    "platforma": "Platform",
+    "podpora": "Support",
+    "firemní": "Company",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "cookies": "Cookies",
+    "gdpr": "GDPR",
+    "copyright": "© 2025 VeVit · Vít Vedral"
+  },
+  "about": {
+    "title": "About us",
+    "mission": "I'm Vít — one person building VeVit from scratch in his free time. No team, no investor capital, no shortcuts."
+  },
+  "roadmap": {
+    "title": "Roadmap",
+    "planning": "Planning",
+    "inProgress": "In progress",
+    "done": "Done"
+  },
+  "status": {
+    "title": "Platform status",
+    "allOnline": "All services online",
+    "degraded": "Some issues",
+    "outage": "Outage"
+  },
+  "command": {
+    "placeholder": "Search pages, apps, articles..."
+  }
+}

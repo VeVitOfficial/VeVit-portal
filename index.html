@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="cs" class="dark" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VeVit | Digitální Vesmír</title>
+    <meta name="description" content="Vítejte ve světě VeVit. Rozcestník pro nástroje, hry, vzdělávání a služby." />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="ad6bc836-8702-4690-8568-39bc5959d50b"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      try {
+        tailwind.config = {
+          darkMode: 'class',
+          theme: {
+            extend: {
+              fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+              colors: {
+                // Primární neutrální škála — Emerald (zelená)
+                brand: {
+                  50: '#ecfdf5',
+                  100: '#d1fae5',
+                  200: '#a7f3d0',
+                  300: '#6ee7b7',
+                  400: '#34d399',
+                  500: '#10b981',
+                  600: '#059669',
+                  700: '#047857',
+                  800: '#065f46',
+                  900: '#064e3b',
+                  950: '#022c22',
+                },
+                // Pozadí
+                surface: {
+                  50: '#fafafa',
+                  100: '#f4f4f5',
+                  200: '#e4e4e7',
+                  300: '#d4d4d8',
+                  400: '#a1a1aa',
+                  500: '#71717a',
+                  600: '#52525b',
+                  700: '#3f3f46',
+                  800: '#27272a',
+                  900: '#18181b',
+                  950: '#0c0c0f',
+                }
+              },
+              animation: {
+                'fade-in': 'fadeIn 150ms ease-out',
+                'slide-up': 'slideUp 200ms ease-out',
+              },
+              keyframes: {
+                fadeIn: {
+                  '0%': { opacity: '0' },
+                  '100%': { opacity: '1' },
+                },
+                slideUp: {
+                  '0%': { opacity: '0', transform: 'translateY(8px)' },
+                  '100%': { opacity: '1', transform: 'translateY(0)' },
+                },
+              }
+            }
+          }
+        }
+      } catch (e) { console.error("Tailwind config error", e); }
+    </script>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body class="bg-surface-50 dark:bg-surface-950 text-slate-900 dark:text-white">
+    <div id="root" class="min-h-screen flex flex-col">
+        <!-- Zde se bude renderovat obsah pomocí Vanilla JS -->
+    </div>
+
+    <script src="./assets/js/auth.js"></script>
+    <script src="./assets/js/ui.js"></script>
+    <script>
+      // SSO scripts loaded as optional enhancement — login works locally without them
+      function loadSSO() {
+        var s1 = document.createElement('script');
+        s1.src = 'https://account.vevit.fun/js/vevit-auth.js';
+        s1.onerror = function() { /* SSO unavailable — local auth still works */ };
+        s1.onload = function() {
+          var s2 = document.createElement('script');
+          s2.src = 'https://account.vevit.fun/js/vevit-login-popup.js';
+          s2.onerror = function() { /* SSO popup unavailable */ };
+          document.body.appendChild(s2);
+        };
+        document.body.appendChild(s1);
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadSSO);
+      } else {
+        loadSSO();
+      }
+    </script>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>

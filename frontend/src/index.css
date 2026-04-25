@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sora: "Sora", system-ui, sans-serif;
+
+  --color-bg-base: #0d0d0d;
+  --color-bg-card: #161616;
+  --color-bg-raised: #1e1e1e;
+
+  --color-accent: #10b981;
+  --color-accent-h: #059669;
+  --color-accent-glow: rgba(16, 185, 129, 0.12);
+
+  --color-text-pri: #f0f0f0;
+  --color-text-sec: #9ca3af;
+  --color-text-muted: #6b7280;
+
+  --color-success: #22c55e;
+  --color-warn: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+:root {
+  --border-default: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+  --shadow-card: 4px 4px 12px rgba(0, 0, 0, 0.5), -2px -2px 6px rgba(255, 255, 255, 0.03);
+  --shadow-glow: 0 0 16px rgba(16, 185, 129, 0.25);
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+html::-webkit-scrollbar { width: 6px; }
+html::-webkit-scrollbar-track { background: transparent; }
+html::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
+html::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
+
+body {
+  font-family: "Sora", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark body, .dark {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-pri);
+}
+
+/* Light mode overrides */
+html:not(.dark) {
+  --color-bg-base: #ffffff;
+  --color-bg-card: #f5f5f5;
+  --color-bg-raised: #e5e5e5;
+  --color-text-pri: #0d0d0d;
+  --color-text-sec: #525252;
+  --color-text-muted: #737373;
+  --border-default: rgba(0, 0, 0, 0.08);
+  --border-hover: rgba(0, 0, 0, 0.15);
+  --shadow-card: 4px 4px 12px rgba(0, 0, 0, 0.08), -2px -2px 6px rgba(0, 0, 0, 0.02);
+  --shadow-glow: 0 0 16px rgba(16, 185, 129, 0.15);
+}
+
+/* Disco mode easter egg */
+.disco-mode {
+  animation: disco-hue 3s linear infinite;
+}
+@keyframes disco-hue {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}

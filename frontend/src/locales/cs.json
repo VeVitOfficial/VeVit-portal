@@ -1,0 +1,137 @@
+{
+  "nav": {
+    "home": "Domů",
+    "apps": "Aplikace",
+    "about": "O nás",
+    "roadmap": "Roadmapa",
+    "changelog": "Changelog",
+    "contact": "Kontakt",
+    "login": "Přihlásit se",
+    "register": "Registrovat"
+  },
+  "hero": {
+    "pill": "Nová platforma na VPS",
+    "title": "Jeden účet. Celý digitální svět.",
+    "subtitle": "Hry, nástroje, vzdělávání a služby — pod jednou střechou, bez reklam, zdarma.",
+    "ctaPrimary": "Začít zdarma",
+    "ctaSecondary": "Prozkoumat aplikace",
+    "trust": "Bez reklam · Data v Česku · Open source komponenty",
+    "welcomeBack": "Vítej zpět, {{nickname}}!",
+    "userStats": "Máš {{xp}} XP · Level {{level}} · Poslední aktivita: {{timeAgo}}",
+    "continueCourse": "Pokračuj v kurzu: {{course}}",
+    "continueCourseCta": "Pokračovat",
+    "yourRecord": "Tvůj rekord: {{game}} {{score}}",
+    "beatRecord": "Pokořit rekord",
+    "xpToSpend": "Máš {{xp}} XP k utracení",
+    "xpStore": "Otevřít XP obchod"
+  },
+  "stats": {
+    "users": "Aktivních uživatelů",
+    "lessonsCompleted": "Dokončených lekcí",
+    "gamesPlayed": "Odehraných her",
+    "toolsAvailable": "Dostupných nástrojů"
+  },
+  "bento": {
+    "title": "Celý ekosystém",
+    "subtitle": "Jedno přihlášení. Všechny služby propojené.",
+    "games": "Hry",
+    "gamesDesc": "30 her — hraj, získávej XP a lev up",
+    "tools": "Nástroje",
+    "toolsDesc": "94 nástrojů · 10 AI nástrojů",
+    "edu": "Kurzy programování",
+    "eduDesc": "18 kurzů, 500+ lekcí",
+    "services": "Marketplace služeb",
+    "store": "Obchod",
+    "account": "Tvůj profil",
+    "vevibe": "Komunita",
+    "search": "Vyhledávač",
+    "online": "Online",
+    "soon": "Brzy",
+    "activityToday": "Aktivita: {{count}} her odehraných dnes"
+  },
+  "activity": {
+    "title": "Co se právě děje",
+    "show": "Zobrazit",
+    "hide": "Skrýt",
+    "anonymous": "Anonymní hráč",
+    "levelUp": "{{nickname}} dosáhl levelu {{level}}",
+    "highscore": "{{nickname}} má nový rekord v {{game}} — {{score}}",
+    "lessonCompleted": "{{nickname}} dokončil {{lesson}} v kurzu {{course}}",
+    "courseStarted": "{{nickname}} začal kurz {{course}}",
+    "toolUsed": "{{nickname}} používá {{tool}}",
+    "timeAgo": "před {{minutes}} min"
+  },
+  "features": {
+    "title": "Proč VeVit?",
+    "dataInCz": "Tvá data v Česku",
+    "dataInCzDesc": "Celá platforma běží na serverech v Evropě. Žádné trackery, žádné reklamy, žádné sdílení s třetími stranami.",
+    "noAds": "Bez reklam — navždy",
+    "xpSystem": "XP systém — hrej, uč se, získávej",
+    "openSource": "Open source komponenty",
+    "oneAccount": "Jedno přihlášení pro vše"
+  },
+  "premium": {
+    "title": "Více, když chceš.",
+    "pill": "Premium",
+    "body": "Podpoř projekt a získej neomezené AI nástroje, prioritní support a exkluzivní vzhledy.",
+    "cta": "Zobrazit plány",
+    "bronze": "49 Kč/měs",
+    "silver": "99 Kč/měs",
+    "gold": "199 Kč/měs",
+    "note": "Platba přes Stripe. Zrušíš kdykoliv."
+  },
+  "changelogTeaser": {
+    "title": "Poslední aktualizace",
+    "viewAll": "Zobrazit vše"
+  },
+  "contact": {
+    "title": "Napiš nám",
+    "subtitle": "Dotaz, nápad, bug? Napiš. Odpovídám osobně.",
+    "name": "Jméno",
+    "email": "Email",
+    "subject": "Předmět",
+    "subjectOptional": "Předmět (volitelný)",
+    "message": "Zpráva",
+    "send": "Odeslat",
+    "sending": "Odesílám...",
+    "success": "Zpráva odeslána!",
+    "error": "Chyba při odesílání."
+  },
+  "newsletter": {
+    "title": "Novinky v emailu",
+    "subtitle": "Měsíční souhrn novinek, bez spamu, odhlásíš kdykoliv.",
+    "placeholder": "tvuj@email.cz",
+    "subscribe": "Přihlásit se",
+    "checkEmail": "Zkontroluj email pro potvrzení."
+  },
+  "footer": {
+    "desc": "Moderní digitální ekosystém v Česku.",
+    "platforma": "Platforma",
+    "podpora": "Podpora",
+    "firemní": "Firemní",
+    "terms": "Podmínky",
+    "privacy": "Soukromí",
+    "cookies": "Cookies",
+    "gdpr": "GDPR",
+    "copyright": "© 2025 VeVit · Vít Vedral"
+  },
+  "about": {
+    "title": "O nás",
+    "mission": "Jsem Vít — jeden člověk, který ve volném čase buduje VeVit od nuly. Žádný tým, žádný investiční kapitál, žádné zkratky."
+  },
+  "roadmap": {
+    "title": "Roadmapa",
+    "planning": "Plánujeme",
+    "inProgress": "Pracujeme na tom",
+    "done": "Hotovo"
+  },
+  "status": {
+    "title": "Stav platformy",
+    "allOnline": "Všechny služby online",
+    "degraded": "Dochází k potížím",
+    "outage": "Výpadek"
+  },
+  "command": {
+    "placeholder": "Hledat stránky, aplikace, články..."
+  }
+}

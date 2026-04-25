@@ -1,0 +1,8 @@
+[     142ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[     337ms] TypeError: Cannot read properties of undefined (reading 'badge')
+    at https://vevit.fun/assets/js/app.js:779:49
+    at Array.map (<anonymous>)
+    at Object.getPremiumHTML (https://vevit.fun/assets/js/app.js:767:45)
+    at Object.render (https://vevit.fun/assets/js/app.js:342:67)
+    at Object.init (https://vevit.fun/assets/js/app.js:116:14)
+    at HTMLDocument.<anonymous> (https://vevit.fun/assets/js/app.js:1258:9)
