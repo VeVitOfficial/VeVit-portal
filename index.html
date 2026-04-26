@@ -1,104 +1,838 @@
-<!DOCTYPE html>
-<html lang="cs" class="dark" style="scroll-behavior: smooth;">
+<!doctype html>
+<html lang="cs">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VeVit | Digitální Vesmír</title>
-    <meta name="description" content="Vítejte ve světě VeVit. Rozcestník pro nástroje, hry, vzdělávání a služby." />
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="ad6bc836-8702-4690-8568-39bc5959d50b"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0d0d0d">
+  <title>VeVit — Vše na jednom místě</title>
+  <meta name="description" content="VeVit je český digitální ekosystém — hry, nástroje, vzdělávání a komunita pod jedním účtem. Bez reklam, navždy.">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VeVit — Vše na jednom místě">
+  <meta property="og:description" content="Hry, nástroje, vzdělávání a komunita — pod jednou střechou, bez reklam.">
+  <meta property="og:url" content="https://vevit.fun">
+  <meta property="og:locale" content="cs_CZ">
+  <meta name="twitter:card" content="summary_large_image">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      try {
-        tailwind.config = {
-          darkMode: 'class',
-          theme: {
-            extend: {
-              fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-              colors: {
-                // Primární neutrální škála — Emerald (zelená)
-                brand: {
-                  50: '#ecfdf5',
-                  100: '#d1fae5',
-                  200: '#a7f3d0',
-                  300: '#6ee7b7',
-                  400: '#34d399',
-                  500: '#10b981',
-                  600: '#059669',
-                  700: '#047857',
-                  800: '#065f46',
-                  900: '#064e3b',
-                  950: '#022c22',
-                },
-                // Pozadí
-                surface: {
-                  50: '#fafafa',
-                  100: '#f4f4f5',
-                  200: '#e4e4e7',
-                  300: '#d4d4d8',
-                  400: '#a1a1aa',
-                  500: '#71717a',
-                  600: '#52525b',
-                  700: '#3f3f46',
-                  800: '#27272a',
-                  900: '#18181b',
-                  950: '#0c0c0f',
-                }
-              },
-              animation: {
-                'fade-in': 'fadeIn 150ms ease-out',
-                'slide-up': 'slideUp 200ms ease-out',
-              },
-              keyframes: {
-                fadeIn: {
-                  '0%': { opacity: '0' },
-                  '100%': { opacity: '1' },
-                },
-                slideUp: {
-                  '0%': { opacity: '0', transform: 'translateY(8px)' },
-                  '100%': { opacity: '1', transform: 'translateY(0)' },
-                },
-              }
-            }
-          }
-        }
-      } catch (e) { console.error("Tailwind config error", e); }
-    </script>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230d0d0d'/><path d='M8 10l4 12h2L18 10h-3l-2 8-2-8H8zm14 0v12h2v-5h3v-2h-3v-3h4v-2h-6z' fill='%2310b981'/></svg>">
 
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/premium.css">
 </head>
-<body class="bg-surface-50 dark:bg-surface-950 text-slate-900 dark:text-white">
-    <div id="root" class="min-h-screen flex flex-col">
-        <!-- Zde se bude renderovat obsah pomocí Vanilla JS -->
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" data-nav role="banner">
+    <div class="container nav-inner">
+      <a href="#" class="wordmark" aria-label="VeVit — domovská stránka">VeVit</a>
+
+      <nav class="nav-links" aria-label="Hlavní navigace">
+        <a class="nav-link" href="https://tools.vevit.fun">Tools</a>
+        <a class="nav-link" href="https://games.vevit.fun">Games</a>
+        <a class="nav-link" href="https://edu.vevit.fun">Edu</a>
+        <a class="nav-link" href="#about">O nás</a>
+
+        <div class="dropdown-wrap">
+          <button class="nav-link" type="button" data-premium-trigger aria-expanded="false" aria-haspopup="true" aria-controls="premium-dropdown">
+            <i data-lucide="sparkles" style="width:14px;height:14px;color:var(--t-gold);"></i>
+            Premium
+            <i data-lucide="chevron-down" class="chev" style="width:14px;height:14px;"></i>
+          </button>
+          <div class="dropdown-premium" id="premium-dropdown" data-premium-menu role="menu">
+            <a class="dd-tier" href="#premium" role="menuitem" style="--c1:#b45309;--c2:#f59e0b;">
+              <span class="mini-coin"></span>
+              <span class="dd-tier-name">Bronze</span>
+              <span class="dd-tier-price">99 Kč/m</span>
+            </a>
+            <a class="dd-tier" href="#premium" role="menuitem" style="--c1:#6b7280;--c2:#d1d5db;">
+              <span class="mini-coin"></span>
+              <span class="dd-tier-name">Silver <span style="color:var(--t-silver);font-size:10px;">★</span></span>
+              <span class="dd-tier-price">199 Kč/m</span>
+            </a>
+            <a class="dd-tier" href="#premium" role="menuitem" style="--c1:#d97706;--c2:#fde047;">
+              <span class="mini-coin"></span>
+              <span class="dd-tier-name">Gold</span>
+              <span class="dd-tier-price">399 Kč/m</span>
+            </a>
+            <a class="dd-tier" href="#premium" role="menuitem" style="--c1:#6d28d9;--c2:#c4b5fd;">
+              <span class="mini-coin"></span>
+              <span class="dd-tier-name">Platinum</span>
+              <span class="dd-tier-price">1 499 Kč/m</span>
+            </a>
+            <div class="dd-divider"></div>
+            <div class="dd-foot">Bez reklam · Zrušení kdykoliv</div>
+          </div>
+        </div>
+
+        <div class="dropdown-wrap">
+          <button class="nav-link" type="button" data-dropdown-trigger aria-expanded="false" aria-haspopup="true" aria-controls="apps-dropdown">
+            Více
+            <i data-lucide="chevron-down" class="chev" style="width:14px;height:14px;"></i>
+          </button>
+
+          <div class="dropdown" id="apps-dropdown" data-dropdown-menu role="menu">
+            <a class="dd-item" href="https://account.vevit.fun" role="menuitem">
+              <span class="dd-icon"><i data-lucide="user" style="width:18px;height:18px;"></i></span>
+              <span>
+                <span class="dd-name">Account</span>
+                <span class="dd-desc">SSO, dashboard a XP profil</span>
+              </span>
+            </a>
+            <a class="dd-item" href="https://games.vevit.fun" role="menuitem">
+              <span class="dd-icon"><i data-lucide="gamepad-2" style="width:18px;height:18px;"></i></span>
+              <span>
+                <span class="dd-name">Games</span>
+                <span class="dd-desc">18+ her s XP odměnami</span>
+              </span>
+            </a>
+            <a class="dd-item" href="https://services.vevit.fun" role="menuitem">
+              <span class="dd-icon"><i data-lucide="wrench" style="width:18px;height:18px;"></i></span>
+              <span>
+                <span class="dd-name">Services</span>
+                <span class="dd-desc">79 nástrojů — PDF, AI, dev</span>
+              </span>
+            </a>
+            <a class="dd-item" href="https://tools.vevit.fun" role="menuitem">
+              <span class="dd-icon"><i data-lucide="calculator" style="width:18px;height:18px;"></i></span>
+              <span>
+                <span class="dd-name">Tools</span>
+                <span class="dd-desc">Kalkulačky a konvertory</span>
+              </span>
+            </a>
+            <a class="dd-item" href="https://edu.vevit.fun" role="menuitem">
+              <span class="dd-icon"><i data-lucide="graduation-cap" style="width:18px;height:18px;"></i></span>
+              <span>
+                <span class="dd-name">Edu</span>
+                <span class="dd-desc">Lekce, kvízy a kurzy zdarma</span>
+              </span>
+            </a>
+            <a class="dd-item" href="#" role="menuitem">
+              <span class="dd-icon"><i data-lucide="shopping-bag" style="width:18px;height:18px;"></i></span>
+              <span>
+                <span class="dd-name">Store</span>
+                <span class="dd-desc">Merch a digitální produkty</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="upgrade-pill" href="#premium" data-tier-show="free" data-track="nav:upgrade">
+          <i data-lucide="sparkles" class="sparkle" style="width:12px;height:12px;"></i>
+          Upgrade na Premium
+        </a>
+        <a class="btn btn-ghost btn-sm" href="https://account.vevit.fun/login.php" data-track="nav:login">Přihlásit se</a>
+        <a class="btn btn-primary btn-sm" href="https://account.vevit.fun/register.php" data-track="nav:register">Registrovat se</a>
+      </div>
+
+      <button
+        class="hamburger"
+        type="button"
+        data-mobile-open
+        aria-expanded="false"
+        aria-controls="mobile-panel"
+        aria-label="Otevřít menu">
+        <i data-lucide="menu" style="width:20px;height:20px;"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ MOBILE PANEL ============ -->
+  <div class="mobile-overlay" data-mobile-overlay aria-hidden="true"></div>
+  <aside class="mobile-panel" id="mobile-panel" data-mobile-panel aria-label="Mobilní navigace">
+    <div class="mobile-head">
+      <span class="wordmark">VeVit</span>
+      <button class="mobile-close" type="button" data-mobile-close aria-label="Zavřít menu">
+        <i data-lucide="x" style="width:20px;height:20px;"></i>
+      </button>
+    </div>
+    <ul class="mobile-links">
+      <li><a href="https://games.vevit.fun">Hry</a></li>
+      <li><a href="https://tools.vevit.fun">Nástroje</a></li>
+      <li><a href="https://edu.vevit.fun">Vzdělávání</a></li>
+      <li><a href="https://services.vevit.fun">Služby</a></li>
+      <li><a href="https://account.vevit.fun">Account</a></li>
+    </ul>
+    <div class="mobile-cta">
+      <a class="btn btn-ghost" href="https://account.vevit.fun/login.php">Přihlásit se</a>
+      <a class="btn btn-primary" href="https://account.vevit.fun/register.php">Registrovat se</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ============ HERO (EPIC) ============ -->
+    <section class="hero-epic" aria-labelledby="hero-h1">
+      <div class="container">
+        <div class="hero-grid-epic">
+          <div class="rise">
+            <span class="eyebrow">
+              <i data-lucide="sparkles" style="width:12px;height:12px;"></i>
+              Český digitální ekosystém
+            </span>
+            <h1 id="hero-h1" class="hero-h1-epic">
+              Tvůj <span class="gradient-word">toolkit.</span><br>
+              Tvoje hřiště.<br>
+              <span class="strike-word">Bez reklam.</span>
+            </h1>
+            <p class="hero-sub-epic">
+              <strong style="color:var(--text);font-weight:600;">100+ nástrojů</strong>,
+              21+ her a 500+ lekcí v jednom účtu. Pracuj, hraj, uč se — všechno běží lokálně,
+              všechno tě levluje výš.
+            </p>
+            <div class="hero-cta-row">
+              <a class="btn btn-primary" href="https://tools.vevit.fun" data-track="hero:tools">
+                Otevřít Tools
+                <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
+              </a>
+              <a class="btn btn-ghost" href="#platforms" data-track="hero:explore">Prozkoumat ekosystém</a>
+            </div>
+
+            <div class="hero-meta">
+              <div class="hero-meta-item">
+                <span class="hero-meta-num acc">100+</span>
+                <span>nástrojů</span>
+              </div>
+              <span class="hero-meta-sep" aria-hidden="true"></span>
+              <div class="hero-meta-item">
+                <span class="hero-meta-num">21+</span>
+                <span>her</span>
+              </div>
+              <span class="hero-meta-sep" aria-hidden="true"></span>
+              <div class="hero-meta-item">
+                <span class="hero-meta-num">500+</span>
+                <span>lekcí</span>
+              </div>
+              <span class="hero-meta-sep" aria-hidden="true"></span>
+              <div class="hero-meta-item">
+                <span class="hero-meta-num">1 200+</span>
+                <span>uživatelů</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="orbit rise rise-2" aria-hidden="true">
+            <span class="orbit-tag tag-1">tools.vevit.fun</span>
+            <span class="orbit-tag tag-2">games.vevit.fun</span>
+            <span class="orbit-tag tag-3">edu.vevit.fun</span>
+            <span class="orbit-tag tag-4">services.vevit.fun</span>
+
+            <div class="orbit-ring"></div>
+            <div class="orbit-ring r2"></div>
+            <div class="orbit-ring r3"></div>
+            <div class="orbit-ring r4"></div>
+
+            <div class="orbit-core">
+              <span class="orbit-core-mark">Ve</span>
+              <span class="orbit-core-tag">CORE</span>
+            </div>
+
+            <!-- Outer ring — fast, 4 nodes -->
+            <div class="orbit-track t-fast">
+              <span class="orbit-node n-pos-1" style="--n: var(--c-tools)">
+                <span class="orbit-node-inner"><i data-lucide="wrench" style="width:22px;height:22px;color:var(--c-tools);"></i></span>
+              </span>
+              <span class="orbit-node n-pos-2" style="--n: var(--c-games)">
+                <span class="orbit-node-inner"><i data-lucide="gamepad-2" style="width:22px;height:22px;color:var(--c-games);"></i></span>
+              </span>
+              <span class="orbit-node n-pos-3" style="--n: var(--c-edu)">
+                <span class="orbit-node-inner"><i data-lucide="graduation-cap" style="width:22px;height:22px;color:var(--c-edu);"></i></span>
+              </span>
+              <span class="orbit-node n-pos-4" style="--n: var(--c-services)">
+                <span class="orbit-node-inner"><i data-lucide="layers" style="width:22px;height:22px;color:var(--c-services);"></i></span>
+              </span>
+            </div>
+
+            <!-- Mid ring — slow reverse -->
+            <div class="orbit-track t-rev" style="inset: 18%;">
+              <span class="orbit-node n-pos-5" style="--n: var(--c-account); width:42px;">
+                <span class="orbit-node-inner"><i data-lucide="user" style="width:18px;height:18px;color:var(--c-account);"></i></span>
+              </span>
+              <span class="orbit-node n-pos-6" style="--n: var(--c-search); width:42px;">
+                <span class="orbit-node-inner"><i data-lucide="search" style="width:18px;height:18px;color:var(--c-search);"></i></span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee stat strip -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span><span class="dot"></span>100+ NÁSTROJŮ</span>
+        <span><span class="dot"></span>21+ HER</span>
+        <span><span class="dot"></span>500+ LEKCÍ</span>
+        <span><span class="dot"></span>1 200+ UŽIVATELŮ</span>
+        <span><span class="dot"></span>BEZ REKLAM</span>
+        <span><span class="dot"></span>VŠE LOKÁLNĚ V PROHLÍŽEČI</span>
+        <span><span class="dot"></span>POSTAVENO V ČR</span>
+        <!-- duplicate for loop -->
+        <span><span class="dot"></span>100+ NÁSTROJŮ</span>
+        <span><span class="dot"></span>21+ HER</span>
+        <span><span class="dot"></span>500+ LEKCÍ</span>
+        <span><span class="dot"></span>1 200+ UŽIVATELŮ</span>
+        <span><span class="dot"></span>BEZ REKLAM</span>
+        <span><span class="dot"></span>VŠE LOKÁLNĚ V PROHLÍŽEČI</span>
+        <span><span class="dot"></span>POSTAVENO V ČR</span>
+      </div>
     </div>
 
-    <script src="./assets/js/auth.js"></script>
-    <script src="./assets/js/ui.js"></script>
-    <script>
-      // SSO scripts loaded as optional enhancement — login works locally without them
-      function loadSSO() {
-        var s1 = document.createElement('script');
-        s1.src = 'https://account.vevit.fun/js/vevit-auth.js';
-        s1.onerror = function() { /* SSO unavailable — local auth still works */ };
-        s1.onload = function() {
-          var s2 = document.createElement('script');
-          s2.src = 'https://account.vevit.fun/js/vevit-login-popup.js';
-          s2.onerror = function() { /* SSO popup unavailable */ };
-          document.body.appendChild(s2);
-        };
-        document.body.appendChild(s1);
-      }
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', loadSSO);
-      } else {
-        loadSSO();
-      }
-    </script>
-    <script src="./assets/js/app.js"></script>
+    <!-- ============ APPS / EPIC BENTO ============ -->
+    <section class="section" id="platforms" aria-labelledby="platforms-h2">
+      <div class="container">
+        <header class="section-head">
+          <span class="eyebrow"><i data-lucide="grid-3x3" style="width:12px;height:12px;"></i> Ekosystém</span>
+          <h2 id="platforms-h2" class="t-3xl" style="margin:8px 0 8px;">Osm aplikací. <span style="color:var(--text-muted);">Jeden účet.</span></h2>
+          <p>Od kalkulaček po komunitu — každá doména je samostatný svět, ale XP teče napříč.</p>
+        </header>
+
+        <div class="bento-epic">
+          <!-- TOOLS — HERO CARD -->
+          <a class="ec ec-tools" href="https://tools.vevit.fun" data-track="bento:tools">
+            <span class="ec-glow"></span>
+            <span class="ec-badge">Vlajková loď</span>
+
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span class="ec-icon-wrap"><i data-lucide="wrench" style="width:22px;height:22px;"></i></span>
+              <span class="eyebrow" style="color:var(--c-tools);">tools.vevit.fun</span>
+            </div>
+
+            <div class="ec-tools-num">100<sup>+</sup></div>
+            <h3 class="ec-title">Tools</h3>
+            <p class="ec-desc" style="max-width:420px;">
+              Kalkulačky, konvertory, generátory, PDF nástroje, AI pomocníci a dev utility.
+              Vše běží lokálně v prohlížeči — žádný upload, žádné čekání.
+            </p>
+
+            <div class="toolkit-grid" aria-hidden="true">
+              <span class="toolkit-tile hot"><i data-lucide="calculator" style="width:18px;height:18px;"></i></span>
+              <span class="toolkit-tile"><i data-lucide="palette" style="width:18px;height:18px;"></i></span>
+              <span class="toolkit-tile hot"><i data-lucide="file-text" style="width:18px;height:18px;"></i></span>
+              <span class="toolkit-tile"><i data-lucide="qr-code" style="width:18px;height:18px;"></i></span>
+              <span class="toolkit-tile"><i data-lucide="ruler" style="width:18px;height:18px;"></i></span>
+              <span class="toolkit-tile hot"><i data-lucide="key-round" style="width:18px;height:18px;"></i></span>
+              <span class="toolkit-tile"><i data-lucide="scissors" style="width:18px;height:18px;"></i></span>
+              <span class="toolkit-tile"><i data-lucide="image" style="width:18px;height:18px;"></i></span>
+              <span class="toolkit-tile"><i data-lucide="hash" style="width:18px;height:18px;"></i></span>
+              <span class="toolkit-tile hot"><i data-lucide="braces" style="width:18px;height:18px;"></i></span>
+              <span class="toolkit-tile"><i data-lucide="timer" style="width:18px;height:18px;"></i></span>
+              <span class="toolkit-tile"><i data-lucide="link" style="width:18px;height:18px;"></i></span>
+              <span class="toolkit-tile"><i data-lucide="percent" style="width:18px;height:18px;"></i></span>
+              <span class="toolkit-tile"><i data-lucide="type" style="width:18px;height:18px;"></i></span>
+              <span class="toolkit-tile dim"><i data-lucide="more-horizontal" style="width:18px;height:18px;"></i></span>
+              <span class="toolkit-tile dim"></span>
+            </div>
+
+            <span class="ec-arrow"><i data-lucide="arrow-up-right" style="width:16px;height:16px;"></i></span>
+          </a>
+
+          <!-- GAMES -->
+          <a class="ec ec-games" href="https://games.vevit.fun" data-track="bento:games">
+            <span class="ec-glow"></span>
+            <span class="ec-badge">Early Access</span>
+            <span class="ec-icon-wrap"><i data-lucide="gamepad-2" style="width:22px;height:22px;"></i></span>
+            <h3 class="ec-title">Games</h3>
+            <p class="ec-desc">21+ her — Snake, Tetris, Pac-Man, 2048 a další. Hraj a leveluj svůj VeVit účet.</p>
+            <div class="ec-meta">
+              <span class="ec-count" style="font-size:24px;">21<sup style="font-size:0.5em;">+</sup></span>
+              <span>her na výběr</span>
+            </div>
+            <div class="pixel-row" aria-hidden="true">
+              <span class="pixel-cell on"></span><span class="pixel-cell on"></span>
+              <span class="pixel-cell"></span><span class="pixel-cell on"></span>
+              <span class="pixel-cell on"></span><span class="pixel-cell"></span>
+              <span class="pixel-cell on"></span><span class="pixel-cell on"></span>
+              <span class="pixel-cell on"></span><span class="pixel-cell"></span>
+              <span class="pixel-cell on"></span><span class="pixel-cell on"></span>
+            </div>
+            <span class="ec-arrow"><i data-lucide="arrow-up-right" style="width:16px;height:16px;"></i></span>
+          </a>
+
+          <!-- EDU -->
+          <a class="ec ec-edu" href="https://edu.vevit.fun" data-track="bento:edu">
+            <span class="ec-glow"></span>
+            <span class="ec-badge">Live</span>
+            <span class="ec-icon-wrap"><i data-lucide="graduation-cap" style="width:22px;height:22px;"></i></span>
+            <h3 class="ec-title">Edu</h3>
+            <p class="ec-desc">500+ lekcí, kvízů a článků. Programování, matematika, jazyky.</p>
+            <div class="ec-meta">
+              <span class="ec-count" style="font-size:24px;">500<sup style="font-size:0.5em;">+</sup></span>
+              <span>lekcí zdarma</span>
+            </div>
+            <div class="lesson-bars" aria-hidden="true">
+              <span style="height:40%"></span><span style="height:65%"></span>
+              <span style="height:50%"></span><span style="height:80%"></span>
+              <span style="height:60%"></span><span style="height:95%"></span>
+              <span style="height:70%"></span><span style="height:85%"></span>
+              <span style="height:55%"></span><span style="height:78%"></span>
+              <span style="height:90%"></span><span style="height:62%"></span>
+            </div>
+            <span class="ec-arrow"><i data-lucide="arrow-up-right" style="width:16px;height:16px;"></i></span>
+          </a>
+
+          <!-- SERVICES -->
+          <a class="ec ec-services" href="https://services.vevit.fun" data-track="bento:services">
+            <span class="ec-glow"></span>
+            <span class="ec-badge">Live</span>
+            <span class="ec-icon-wrap"><i data-lucide="layers" style="width:22px;height:22px;"></i></span>
+            <h3 class="ec-title">Services</h3>
+            <p class="ec-desc">PDF nástroje, obrazové editory, AI pomocníci. Práce v prohlížeči.</p>
+            <div class="ec-meta">
+              <span>PDF · IMG · AI · DEV</span>
+              <span style="color:var(--c-services);">→</span>
+            </div>
+            <span class="ec-arrow"><i data-lucide="arrow-up-right" style="width:16px;height:16px;"></i></span>
+          </a>
+
+          <!-- ACCOUNT -->
+          <a class="ec ec-account" href="https://account.vevit.fun" data-track="bento:account">
+            <span class="ec-glow"></span>
+            <span class="ec-badge">SSO</span>
+            <span class="ec-icon-wrap"><i data-lucide="user-round" style="width:22px;height:22px;"></i></span>
+            <h3 class="ec-title">Account</h3>
+            <p class="ec-desc">Jeden účet napříč ekosystémem. XP profil, achievementy, level 1→100.</p>
+            <div class="xp-bar" aria-hidden="true">
+              <div class="xp-bar-track"><div class="xp-bar-fill"></div></div>
+              <div class="xp-bar-meta">
+                <span>LVL 23 · WIZARD</span>
+                <span>6 400 / 10 000 XP</span>
+              </div>
+            </div>
+            <span class="ec-arrow"><i data-lucide="arrow-up-right" style="width:16px;height:16px;"></i></span>
+          </a>
+
+          <!-- SEARCH (Soon) -->
+          <div class="ec ec-search" aria-disabled="true">
+            <span class="ec-badge muted"><i data-lucide="lock" style="width:10px;height:10px;"></i> Brzy</span>
+            <span class="ec-icon-wrap"><i data-lucide="search" style="width:22px;height:22px;"></i></span>
+            <h3 class="ec-title">Search</h3>
+            <p class="ec-desc">Univerzální vyhledávač přes celý VeVit ekosystém.</p>
+            <div class="ec-meta"><span>search.vevit.fun</span></div>
+          </div>
+
+          <!-- STORE (Soon) -->
+          <div class="ec ec-store" aria-disabled="true">
+            <span class="ec-badge muted"><i data-lucide="lock" style="width:10px;height:10px;"></i> Brzy</span>
+            <span class="ec-icon-wrap"><i data-lucide="shopping-bag" style="width:22px;height:22px;"></i></span>
+            <h3 class="ec-title">Store</h3>
+            <p class="ec-desc">Oficiální merch, digitální produkty a Premium plány.</p>
+            <div class="ec-meta"><span>store.vevit.fun</span></div>
+          </div>
+
+          <!-- VEWIBE (Soon) -->
+          <div class="ec ec-vewibe" aria-disabled="true">
+            <span class="ec-badge muted"><i data-lucide="lock" style="width:10px;height:10px;"></i> Brzy</span>
+            <span class="ec-icon-wrap"><i data-lucide="users-round" style="width:22px;height:22px;"></i></span>
+            <h3 class="ec-title">VeWibe</h3>
+            <p class="ec-desc">Komunita ve stylu Reddit × Discord. Topics, threads, vibes.</p>
+            <div class="ec-meta"><span>vewibe.vevit.fun</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TOOLS SHOWCASE ============ -->
+    <section class="section" id="tools" aria-labelledby="tools-h2">
+      <div class="container">
+        <header class="section-head-c">
+          <span class="eyebrow">Top nástroje</span>
+          <h2 id="tools-h2" class="t-2xl">Nejpoužívanější nástroje</h2>
+          <p>Z 79 dostupných — vybíráme to, co naši uživatelé otevírají denně.</p>
+        </header>
+
+        <div class="tools-showcase">
+          <a class="tool-mini" href="https://services.vevit.fun/pdf-merge"><span class="tool-ico"><i data-lucide="file-text" style="width:18px;height:18px;"></i></span><span class="tool-name">PDF Merge</span><span class="tool-meta">12 482×</span></a>
+          <a class="tool-mini" href="https://tools.vevit.fun/calculator"><span class="tool-ico"><i data-lucide="calculator" style="width:18px;height:18px;"></i></span><span class="tool-name">Kalkulačka</span><span class="tool-meta">9 871×</span></a>
+          <a class="tool-mini" href="https://services.vevit.fun/qr"><span class="tool-ico"><i data-lucide="qr-code" style="width:18px;height:18px;"></i></span><span class="tool-name">QR Generator</span><span class="tool-meta">8 204×</span></a>
+          <a class="tool-mini" href="https://services.vevit.fun/image"><span class="tool-ico"><i data-lucide="image" style="width:18px;height:18px;"></i></span><span class="tool-name">Image Compress</span><span class="tool-meta">7 558×</span></a>
+          <a class="tool-mini" href="https://services.vevit.fun/ai-chat"><span class="tool-ico"><i data-lucide="bot" style="width:18px;height:18px;"></i></span><span class="tool-name">AI Chat</span><span class="tool-meta">6 902×</span></a>
+          <a class="tool-mini" href="https://tools.vevit.fun/converter"><span class="tool-ico"><i data-lucide="repeat" style="width:18px;height:18px;"></i></span><span class="tool-name">Konvertor</span><span class="tool-meta">5 414×</span></a>
+          <a class="tool-mini" href="https://services.vevit.fun/json"><span class="tool-ico"><i data-lucide="braces" style="width:18px;height:18px;"></i></span><span class="tool-name">JSON Format</span><span class="tool-meta">4 880×</span></a>
+          <a class="tool-mini" href="https://services.vevit.fun/color"><span class="tool-ico"><i data-lucide="palette" style="width:18px;height:18px;"></i></span><span class="tool-name">Color Picker</span><span class="tool-meta">4 233×</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATS BAND ============ -->
+    <section class="section" id="stats" aria-labelledby="stats-h2">
+      <div class="container">
+        <h2 id="stats-h2" class="sr-only">Statistiky komunity</h2>
+        <div class="stats-band">
+          <div class="stat-block">
+            <div class="label">XP rozdáno</div>
+            <div class="num" data-stat-target="2847291">2 847 291</div>
+            <div class="delta"><i data-lucide="trending-up" style="width:12px;height:12px;"></i> +12.4 % týden</div>
+            <div class="desc">Napříč všemi aplikacemi</div>
+          </div>
+          <div class="stat-block">
+            <div class="label">Lekce dokončeny</div>
+            <div class="num" data-stat-target="48312">48 312</div>
+            <div class="delta"><i data-lucide="trending-up" style="width:12px;height:12px;"></i> +8.1 % týden</div>
+            <div class="desc">V Edu sekci, 142 kurzů</div>
+          </div>
+          <div class="stat-block">
+            <div class="label">Aktivní uživatelé</div>
+            <div class="num" data-stat-target="14802">14 802</div>
+            <div class="delta"><i data-lucide="trending-up" style="width:12px;height:12px;"></i> +2.7 % týden</div>
+            <div class="desc">Měsíčně, MAU</div>
+          </div>
+          <div class="stat-block">
+            <div class="label">Vyřešeno úloh</div>
+            <div class="num" data-stat-target="912557">912 557</div>
+            <div class="delta"><i data-lucide="trending-up" style="width:12px;height:12px;"></i> +14.9 % týden</div>
+            <div class="desc">Tools, AI, kalkulačky</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT / WHY-6 ============ -->
+    <section class="section" id="about" aria-labelledby="why-h2">
+      <div class="container">
+        <header class="section-head-c">
+          <span class="eyebrow">O VeVitu</span>
+          <h2 id="why-h2" class="t-2xl">Proč VeVit existuje</h2>
+          <p>Šest principů, podle kterých stavíme český ekosystém — bez reklam, bez kompromisů.</p>
+        </header>
+
+        <div class="why6">
+          <article class="why-cell">
+            <span class="why-num">01</span>
+            <span class="why-icon-wrap"><i data-lucide="shield-off" style="width:22px;height:22px;"></i></span>
+            <h3>Bez reklam, navždy</h3>
+            <p>Žádné tracking pixely, žádné personalizované inzeráty. Monetizujeme přes Premium a vlastní Store — uživatel není produkt.</p>
+          </article>
+
+          <article class="why-cell why-cell-stat">
+            <span class="why-num">02</span>
+            <div class="stat-big">79+</div>
+            <h3>Nástrojů pod jednou střechou</h3>
+            <p>PDF, AI, kalkulačky, konvertory, dev nástroje. Jeden účet, jedno SSO, jeden zdroj XP napříč celým ekosystémem.</p>
+          </article>
+
+          <article class="why-cell">
+            <span class="why-num">03</span>
+            <span class="why-icon-wrap"><i data-lucide="zap" style="width:22px;height:22px;"></i></span>
+            <h3>Gamifikace s reálným smyslem</h3>
+            <p>Levely 1 → 100, denní streaky, leaderboardy a profilové rámečky. XP se počítá za skutečnou činnost — ne za scroll.</p>
+          </article>
+
+          <article class="why-cell why-cell-quote">
+            <span class="why-num">04</span>
+            <div class="quote-mark">"</div>
+            <blockquote>Konečně český projekt, který nemá ambici prodat moje data — a přitom funguje líp než mezinárodní konkurence.</blockquote>
+            <cite>
+              <span class="avatar">PK</span>
+              <span>Petr Kačírek<br><span style="color:var(--text-muted);font-size:11px;">Premium Gold · od 2024</span></span>
+            </cite>
+          </article>
+
+          <article class="why-cell">
+            <span class="why-num">05</span>
+            <span class="why-icon-wrap"><i data-lucide="globe-2" style="width:22px;height:22px;"></i></span>
+            <h3>Česky první, vždy</h3>
+            <p>Postaveno v Česku, lokalizováno jako první jazyk. Podpora v češtině, faktury s DPH, GDPR-compliant infra v EU.</p>
+            <div class="why-timeline">
+              <span class="done">2023 start</span>
+              <span class="done">2024 Tools</span>
+              <span class="now">2025 Premium</span>
+            </div>
+          </article>
+
+          <article class="why-cell">
+            <span class="why-num">06</span>
+            <span class="why-icon-wrap"><i data-lucide="git-branch" style="width:22px;height:22px;"></i></span>
+            <h3>Open roadmap</h3>
+            <p>Co stavíme se neschováváme. Veřejný changelog, hlasování o featurách, public roadmap — uživatelé spolurozhodují.</p>
+            <div class="why-timeline">
+              <span class="done">v0.9</span>
+              <span class="now">v1.0 (teď)</span>
+              <span>v1.1</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ROADMAP ============ -->
+    <section class="section" id="roadmap" aria-labelledby="roadmap-h2">
+      <div class="container">
+        <header class="section-head-c">
+          <span class="eyebrow">Roadmap</span>
+          <h2 id="roadmap-h2" class="t-2xl">Co chystáme</h2>
+          <p>Veřejná roadmapa pro Q4 2025 a Q1 2026. Hlasovat můžeš v Account dashboardu.</p>
+        </header>
+
+        <div class="roadmap-track">
+          <article class="roadmap-item roadmap-search">
+            <div class="roadmap-q">Q4 2025 · ve vývoji</div>
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span class="roadmap-icon"><i data-lucide="search" style="width:20px;height:20px;"></i></span>
+              <h3>Univerzální Search</h3>
+            </div>
+            <p>Jeden vyhledávač napříč všemi 79 nástroji, hrami, lekcemi a dokumentací. Klávesová zkratka <kbd>⌘K</kbd> kdekoliv v ekosystému.</p>
+            <div class="roadmap-prog" style="--p:65%;"></div>
+            <div class="roadmap-meta"><span>65 % hotovo</span><span>Beta · listopad</span></div>
+          </article>
+
+          <article class="roadmap-item roadmap-store">
+            <div class="roadmap-q">Q4 2025 · plánováno</div>
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span class="roadmap-icon"><i data-lucide="shopping-bag" style="width:20px;height:20px;"></i></span>
+              <h3>VeVit Store</h3>
+            </div>
+            <p>Merch, digitální produkty, e-knihy a kurzy. Premium uživatelé mají 20 % slevu, faktury s DPH automaticky.</p>
+            <div class="roadmap-prog" style="--p:30%;"></div>
+            <div class="roadmap-meta"><span>30 % hotovo</span><span>Launch · prosinec</span></div>
+          </article>
+
+          <article class="roadmap-item roadmap-vewibe">
+            <div class="roadmap-q">Q1 2026 · research</div>
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span class="roadmap-icon"><i data-lucide="waves" style="width:20px;height:20px;"></i></span>
+              <h3>VeWibe</h3>
+            </div>
+            <p>Sociální vrstva ekosystému — sdílení postupu, spolupráce na projektech, týmy a komunity okolo nástrojů a kurzů.</p>
+            <div class="roadmap-prog" style="--p:10%;"></div>
+            <div class="roadmap-meta"><span>10 % research</span><span>Alpha · březen</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PREMIUM ============ -->
+    <section class="premium-section" id="premium" data-tier-state="free" aria-labelledby="premium-h2">
+      <div class="container">
+        <header class="section-head-c">
+          <span class="eyebrow">Prémiové členství</span>
+          <h2 id="premium-h2" class="t-2xl" style="font-weight:500;">VeVit Premium</h2>
+          <p>Odemkni plný potenciál ekosystému a získej výhody napříč všemi aplikacemi.</p>
+        </header>
+
+        <!-- Anonymous gate (visible only when state=anon) -->
+        <div class="premium-gate" data-premium-gate hidden>
+          <i data-lucide="lock" style="width:32px;height:32px;"></i>
+          <h3>Premium plány jsou viditelné jen po přihlášení</h3>
+          <p>Přihlas se nebo si zaregistruj zdarma účet — pak ti ukážeme přesné ceny, slevy podle tvého XP levelu a aktuálních akcí.</p>
+          <a class="btn btn-primary" href="https://account.vevit.fun/register.php">Vytvořit účet zdarma</a>
+        </div>
+
+        <!-- Plans (visible when state=free or any logged-in tier) -->
+        <div data-premium-plans>
+          <div class="billing-wrap">
+            <div class="billing-toggle" role="tablist" aria-label="Frekvence plateb">
+              <button class="billing-btn" data-billing="monthly" aria-pressed="true" role="tab">Měsíčně</button>
+              <button class="billing-btn" data-billing="yearly" aria-pressed="false" role="tab">
+                Ročně
+                <span class="billing-chip">2 měsíce zdarma</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="tier-grid">
+            <!-- BRONZE -->
+            <article class="tier-card tier-bronze" data-tier="bronze">
+              <div class="coin coin-bronze"><i data-lucide="award" style="width:24px;height:24px;"></i></div>
+              <div class="tier-avatar-wrap">
+                <div class="tier-avatar">B</div>
+                <div class="tier-frame"></div>
+              </div>
+              <div class="tier-frame-label">Profilový rámeček</div>
+
+              <div class="tier-name">Bronze</div>
+              <div class="tier-price"><span data-price-monthly="99">99</span><span data-price-yearly="990" hidden>990</span> Kč</div>
+              <div class="tier-price-period"><span data-period-monthly>/ měsíc</span><span data-period-yearly hidden>/ rok</span></div>
+              <div class="tier-price-alt"><span data-alt-monthly>nebo 990 Kč / rok</span><span data-alt-yearly hidden>&nbsp;</span></div>
+
+              <div class="tier-divider"></div>
+
+              <ul class="tier-perks">
+                <li>+20 % XP ze všech aktivit</li>
+                <li>Denní bonus +50 XP</li>
+                <li>Bronzový profilový rámeček</li>
+                <li>Stahování Edu článků</li>
+                <li>Prioritní e-mail podpora</li>
+              </ul>
+
+              <button class="tier-cta" data-tier-cta="bronze">Vybrat Bronze</button>
+            </article>
+
+            <!-- SILVER -->
+            <article class="tier-card tier-silver" data-tier="silver" data-popular="true">
+              <span class="tier-pin tier-pin-popular">Nejoblíbenější</span>
+              <div class="coin coin-silver"><i data-lucide="medal" style="width:24px;height:24px;"></i></div>
+              <div class="tier-avatar-wrap">
+                <div class="tier-avatar">S</div>
+                <div class="tier-frame"></div>
+              </div>
+              <div class="tier-frame-label">Profilový rámeček</div>
+
+              <div class="tier-name">Silver</div>
+              <div class="tier-price"><span data-price-monthly="199">199</span><span data-price-yearly="1990" hidden>1 990</span> Kč</div>
+              <div class="tier-price-period"><span data-period-monthly>/ měsíc</span><span data-period-yearly hidden>/ rok</span></div>
+              <div class="tier-price-alt"><span data-alt-monthly>nebo 1 990 Kč / rok</span><span data-alt-yearly hidden>&nbsp;</span></div>
+
+              <div class="tier-divider"></div>
+
+              <ul class="tier-perks">
+                <li>+50 % XP ze všech aktivit</li>
+                <li>Denní bonus +150 XP</li>
+                <li>Stříbrný profilový rámeček</li>
+                <li>100 AI dotazů / měsíc</li>
+                <li>Prémiové Edu lekce</li>
+                <li>Zvýraznění inzerátu na Services</li>
+              </ul>
+
+              <button class="tier-cta" data-tier-cta="silver">Vybrat Silver</button>
+            </article>
+
+            <!-- GOLD -->
+            <article class="tier-card tier-gold" data-tier="gold">
+              <div class="coin coin-gold"><i data-lucide="crown" style="width:24px;height:24px;"></i></div>
+              <div class="tier-avatar-wrap">
+                <div class="tier-avatar">G</div>
+                <div class="tier-frame"></div>
+              </div>
+              <div class="tier-frame-label">Profilový rámeček</div>
+
+              <div class="tier-name">Gold</div>
+              <div class="tier-price"><span data-price-monthly="399">399</span><span data-price-yearly="3990" hidden>3 990</span> Kč</div>
+              <div class="tier-price-period"><span data-period-monthly>/ měsíc</span><span data-period-yearly hidden>/ rok</span></div>
+              <div class="tier-price-alt"><span data-alt-monthly>nebo 3 990 Kč / rok</span><span data-alt-yearly hidden>&nbsp;</span></div>
+
+              <div class="tier-divider"></div>
+
+              <ul class="tier-perks">
+                <li>+100 % XP (dvojnásobek!)</li>
+                <li>Denní bonus +400 XP</li>
+                <li>Zlatý profilový rámeček</li>
+                <li>Neomezené AI nástroje</li>
+                <li>Inzerát vždy na vrcholu</li>
+                <li>Exkluzivní Gold obsah v Games</li>
+                <li>Podpora do 24 hodin</li>
+              </ul>
+
+              <button class="tier-cta" data-tier-cta="gold">Vybrat Gold</button>
+            </article>
+
+            <!-- PLATINUM -->
+            <article class="tier-card tier-platinum" data-tier="platinum" data-business="true">
+              <span class="tier-pin tier-pin-business">Pro firmy</span>
+              <div class="coin coin-platinum"><i data-lucide="diamond" style="width:24px;height:24px;"></i></div>
+              <div class="tier-avatar-wrap">
+                <div class="tier-avatar">P</div>
+                <div class="tier-frame"></div>
+              </div>
+              <div class="tier-frame-label">Profilový rámeček</div>
+
+              <div class="tier-name">Platinum</div>
+              <div class="tier-price"><span data-price-monthly="1499">1 499</span><span data-price-yearly="14990" hidden>14 990</span> Kč</div>
+              <div class="tier-price-period"><span data-period-monthly>/ měsíc</span><span data-period-yearly hidden>/ rok</span></div>
+              <div class="tier-price-alt"><span data-alt-monthly>nebo 14 990 Kč / rok</span><span data-alt-yearly hidden>&nbsp;</span></div>
+
+              <div class="tier-divider"></div>
+
+              <ul class="tier-perks">
+                <li>Vše z Gold — až 10 účtů</li>
+                <li>+150 % XP pro celý tým</li>
+                <li>Firemní profil s logem</li>
+                <li>Vystavování faktur s DPH</li>
+                <li>Dedikovaný account manager</li>
+                <li>Podpora do 4 hodin</li>
+              </ul>
+
+              <button class="tier-cta" data-tier-cta="platinum">Vybrat Platinum</button>
+            </article>
+          </div>
+
+          <div class="premium-foot">
+            Všechny plány jsou bez reklam · Zrušení kdykoliv ·
+            <a href="https://account.vevit.fun/premium">Porovnat plány podrobně →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ TIER STATE TWEAK ============ -->
+  <div class="tier-tweak" data-tier-tweak>
+    <h5>Tweak · stav uživatele</h5>
+    <div class="tier-tweak-row">
+      <button class="tier-tweak-btn" data-tier-set="anon">Anon</button>
+      <button class="tier-tweak-btn" data-tier-set="free" aria-pressed="true">Free</button>
+      <button class="tier-tweak-btn" data-tier-set="bronze">Bronze</button>
+      <button class="tier-tweak-btn" data-tier-set="silver">Silver</button>
+      <button class="tier-tweak-btn" data-tier-set="gold">Gold</button>
+      <button class="tier-tweak-btn" data-tier-set="platinum">Plat</button>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="wordmark">VeVit</span>
+          <p class="footer-tagline">Český digitální ekosystém. Bez reklam, navždy.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Platformy</h4>
+          <ul>
+            <li><a href="https://games.vevit.fun">Hry</a></li>
+            <li><a href="https://tools.vevit.fun">Nástroje</a></li>
+            <li><a href="https://edu.vevit.fun">Vzdělávání</a></li>
+            <li><a href="https://services.vevit.fun">Služby</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Účet</h4>
+          <ul>
+            <li><a href="https://account.vevit.fun/login.php">Přihlášení</a></li>
+            <li><a href="https://account.vevit.fun/register.php">Registrace</a></li>
+            <li><a href="#">Premium</a></li>
+            <li><a href="https://account.vevit.fun">Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Podpora</h4>
+          <ul>
+            <li><a href="#">Kontakt</a></li>
+            <li><a href="https://ko-fi.com">Ko-fi</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Status</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-base">
+        <p class="footer-copy">
+          &copy; 2026 VeVit. Postaveno s
+          <i data-lucide="heart" class="heart" style="width:12px;height:12px;"></i>
+          v Česku.
+        </p>
+        <div class="social-row" aria-label="Sociální sítě">
+          <a href="https://github.com" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.74.5 12.04c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56 4.56-1.53 7.85-5.83 7.85-10.91C23.5 5.74 18.27.5 12 .5z"/></svg>
+          </a>
+          <a href="https://twitter.com" aria-label="X / Twitter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21.5l-7.5 8.57L23 22h-6.79l-4.78-6.26L5.93 22H2.67l8.02-9.17L1.5 2h6.96l4.32 5.71L18.244 2zm-1.19 18h1.88L7.04 4H5.04l12.014 16z"/></svg>
+          </a>
+          <a href="https://ko-fi.com" aria-label="Ko-fi"><i data-lucide="coffee" style="width:18px;height:18px;"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/premium.js"></script>
 </body>
 </html>
